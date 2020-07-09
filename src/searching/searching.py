@@ -1,6 +1,11 @@
 def linear_search(arr, target):
     # Your code here
-
+    # Loop through each elements of the array
+    # and if the index is equal to the target
+    # then return.
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
 
     return -1   # not found
 
@@ -9,6 +14,21 @@ def linear_search(arr, target):
 def binary_search(arr, target):
 
     # Your code here
+    low = 0
+    high = len(arr) - 1
+    mid = 0
 
+    while low <= high:
+        mid = high + low // 2
 
+        # check if the target is at the middle
+        if arr[mid] < target:
+            low = mid + 1
+        # check if the target is greater, ignore left half
+        elif arr[mid] > target:
+            high = mid - 1
+        # check if the target is smaller, ignore right half
+        else:
+            return mid
+    
     return -1  # not found
